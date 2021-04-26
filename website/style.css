@@ -49,6 +49,12 @@ body{
     font-size: 20px;
 }
 
+.codes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 @media (min-width: 600px) and (max-width:900px) {
 
     #app{
@@ -119,7 +125,7 @@ input{
     font-size: 14px;
     font-family: 'Karla', sans-serif;
     border: none;
-    width: 40%;
+    width: 85%;
     margin-left: 5%;
     border-radius: 15px;
     padding: 4%;
@@ -173,7 +179,7 @@ textarea{
     
     input{
         font-size: 16px;
-        width: 35%;
+        width: 90%;
     }
     
     button{
@@ -195,63 +201,24 @@ textarea{
 @media (min-width:901px) {
 
     label{
-        display: inline-block;
         font-size: 25px;
-        width: 100%;
-        text-align: center;
-        margin: 4% 0;
     }
     
     input{
-        height: 7vh;
-        background:#bec2c3;
-        font-size: 20px;
-        font-family: 'Karla', sans-serif;
-        border: none;
-        width: 40%;
-        margin-left: 5%;
-        border-radius: 15px;
-        padding: 4%;
+        font-size: 18px;
+        width: 85%;
     }
     
     button{
-        height: 7vh;
-        background:#000100;
-        color:  #bec2c3;
         font-size: 26px;
-        font-family: 'Karla', sans-serif;
-        border: none;
-        box-shadow: 2px 4px 5px #444;
-        width: 40%;
-        margin-left: 5%;
-        margin-top: 4%;
-        border-radius: 40px;
-    }
-    
-    button:hover {
-        background-color: #bec2c3;
-        color: #000100;
-        cursor: pointer;
-    }
-    
-    h1{
-        font-size: 36px;
     }
     
     textarea{
-        background:#bec2c3;
         font-size: 20px;
-        font-family: 'Karla', sans-serif;
-        width: 90%;
-        margin-left: 5%;
-        border-radius: 15px;
-        padding: 5%;
     }
     
     .fas {
         font-size: 5vh;
-        padding-left: 3vh;
-        padding-top: 3vh;
     }
 }
 
