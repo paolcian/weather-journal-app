@@ -1,8 +1,8 @@
 /* Global Variables */
 
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=';
-const apiKey = '&appid=4f5b273cd40e0c238274a7ce081dd48b';
-const kelwin = 273.15;
+const apiKey = '&appid=4f5b273cd40e0c238274a7ce081dd48b&units=metric';
+
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -22,7 +22,7 @@ function performAction(e){
 
         .then(function(data) {
             postData('/add', {
-                temp: Math.round(data.main.temp - kelwin),
+                temp: Math.round(data.main.temp),
                 date: newDate, 
                 resp: newFeeling
             });
@@ -64,15 +64,15 @@ const postData = async (url = '', data = {})=>{
 }; 
 
 
-const updateUI = async () => {
+const updateUI = async()=>{
     const request = await fetch('/all');
     try{
-        const allData = await request.json();
-        console.log(allData);
-        document.getElementById('temp').innerHTML = `Temperature: ${allData[allData.length-1].temp} &degC`;
-        document.getElementById('date').innerHTML = `Date: ${allData[allData.length-1].date}`;
-        document.getElementById('content').innerHTML = `Feeling: ${allData[allData.length-1].resp}`;
-
-    } catch(error){
-        console.log("Fetch problem " + error.message);
-    }}
+    const projectData = await request.json();
+    console.log(projectData);
+    document.getElementById('date').innerHTML = `Date: ${projectData.date}`;
+    document.getElementById('temp').innerHTML = `Temperature: ${projectData.temp}`;
+    document.getElementById('content').innerHTML = `I feel: ${projectData.feeling}`;
+    }catch(err){
+    console.log('error',err);
+    }
+    }

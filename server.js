@@ -38,31 +38,34 @@ app.use(express.static('website'));
 
 // GET and POST routes
 
-app.get('/data', getWetData)
+projectData = {};
 
-function getWetData(req,res){
-    res.send(projectData);
-}
-
-const data = [];
 
 app.get('/all', getData);
 
 function getData (req, res) { 
-    res.send(data);
+    console.log(projectData);
+    res.send(projectData);
 }
 
+
+//post function
 
 app.post('/add', addData);
 
-function addData (req, res) {
-        newEntry = {
-        temp: req.body.temp,
-        date: req.body.date,
-        resp: req.body.resp
-    }
-    data.push(newEntry);
-    res.send(data);
-    console.log(newEntry);
-}
+function addData(request, response) {
 
+let data = request.body;
+
+console.log('server side data ', data);
+
+//date
+//temp -> temperature
+// feelings -> user's input
+
+projectData["date"] = data.date;
+projectData["temp"] = data.temp;
+projectData["feeling"] = data.feeling;
+
+response.send(projectData);
+}
