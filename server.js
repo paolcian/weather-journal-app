@@ -65,7 +65,7 @@ console.log('server side data ', data);
 
 projectData["date"] = data.date;
 projectData["temp"] = data.temp;
-projectData["feeling"] = data.feeling;
+projectData["resp"] = data.resp;
 
 response.send(projectData);
 }

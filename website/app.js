@@ -26,10 +26,12 @@ function performAction(e){
                 date: newDate, 
                 resp: newFeeling
             });
-
-        }).then( () =>{
+            }).then( () =>{
             updateUI()})
-}
+            .catch(error => {
+                alert("Please provide correct data!");
+            })
+        }
 
 const getFeelings = async (baseUrl, newZip, str, countryCode, apiKey)=>{
 
@@ -41,6 +43,7 @@ const getFeelings = async (baseUrl, newZip, str, countryCode, apiKey)=>{
         return(data);
     } catch(error) {
         console.log("Fetch problem" + error.message);
+
     }
 } 
 
@@ -71,8 +74,8 @@ const updateUI = async()=>{
     console.log(projectData);
     document.getElementById('date').innerHTML = `Date: ${projectData.date}`;
     document.getElementById('temp').innerHTML = `Temperature: ${projectData.temp}`;
-    document.getElementById('content').innerHTML = `I feel: ${projectData.feeling}`;
+    document.getElementById('content').innerHTML = `I feel: ${projectData.resp}`;
     }catch(err){
     console.log('error',err);
     }
-    }
+    };
